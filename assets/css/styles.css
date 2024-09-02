@@ -62,10 +62,12 @@ a {
 }
 
 /* ============= Header ============= */
-.header {
+.hero-wrap {
   position: relative;
   background: #e6f0ff;
   height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
 }
 
 .fixed-header {
@@ -114,10 +116,6 @@ a {
 
 .navbar .action-btn {
   padding: 13px 16px;
-}
-
-.hero {
-  padding-top: 130px;
 }
 
 .hero .info {
