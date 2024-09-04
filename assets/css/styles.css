@@ -700,3 +700,7 @@ a {
   font-weight: 400;
   line-height: normal;
 }
+
+.footer .list a:hover {
+  text-decoration: underline;
+}
