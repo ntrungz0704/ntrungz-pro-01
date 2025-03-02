@@ -1,0 +1,220 @@
+/* Sử dụng clamp() để tự động điều chỉnh cỡ chữ */
+body {
+  font-size: clamp(1.8rem, 0.781vw + 1rem, 2.4rem);
+}
+
+/* PC */
+@media screen and (min-width: 992px) {
+  body {
+    font-size: 2.4rem; /* 24px */
+  }
+
+  .menu-drawer .navbar__list {
+    display: none;
+  }
+}
+
+/* Tablet && Mobile */
+@media screen and (max-width: 991.98px) {
+  body {
+    font-size: clamp(1.8rem, 0.781vw + 1rem, 2.4rem);
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .navbar .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .toggole-menu {
+    width: 24px;
+  }
+
+  .navbar .navbar__list {
+    display: none;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    /* Ẩn overplay ko dùng display: none vì sẽ ko có animation và transition */
+    opacity: 0;
+    visibility: hidden;
+    /* opacity: 0; // ẩn đi nhưng vẫn tương tác được nên ta cần dùng thêm visibility */
+    transition: 0.5s ease-in-out;
+  }
+
+  .menu-drawer {
+    position: fixed;
+    inset: 0 40% 0 0;
+    background: #ccc;
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: 0.5s ease-in-out;
+  }
+
+  .menu-checkbox:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-checkbox:checked ~ .menu-drawer {
+    transform: translateX(0);
+  }
+
+  .hero .info {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero .title {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .clients .row-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .featured .list {
+    display: grid;
+    grid-template-columns: max-content;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .list-guides .guides-items {
+    flex: 1;
+    margin: 0;
+  }
+
+  .stats .row {
+    flex-direction: column;
+  }
+
+  .stats .img-block,
+  .stats .info {
+    width: 100%;
+  }
+
+  .stats .img-block {
+    margin-top: 30px;
+    order: 2;
+  }
+
+  .stats .info {
+    order: 1;
+    padding: 0;
+  }
+
+  .stats .info .sub-title {
+    width: 70%;
+  }
+
+  .stats .info .desc {
+    width: 100%;
+  }
+
+  .stats .row-qty {
+    flex-direction: row;
+  }
+
+  .stats .row-qty .qty {
+    font-size: 4rem;
+  }
+
+  .stats .row-qty .qty-desc {
+    font-size: 1rem;
+  }
+
+  .subscription .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subscription .image {
+    display: none;
+  }
+
+  .footer .row-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
+  }
+  .footer .content .row .row-top {
+    width: 100%;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    font-size: clamp(1.8rem, 0.781vw + 1rem, 2.4rem);
+  }
+}
+
+/* Mobile */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    font-size: 1.8rem; /* 18px */
+  }
+
+  .row .desc {
+    width: 50%;
+  }
+
+  .row .link span {
+    display: inline-block;
+  }
+
+  .row .arrow {
+    /* display: none; */
+  }
+}
+
+@media (max-width: 575.98px) {
+  .action .action-link {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .img-block {
+    width: 100%;
+  }
+
+  .stats .img-block .thumb {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .row .link span {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .row .arrow {
+    display: none;
+  }
+}
